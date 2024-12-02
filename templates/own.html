@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+
+    <title>Own</title>
+</head>
+<body>
+    <h1>Own</h1>
+    <div id="main">
+        <form action="/read" method="POST">
+            <label for="userText">Bitte gib deinen Text ein</label>
+            <textarea id="userText" name="userText" rows="10" cols="50"></textarea>
+            <button type="submit">Weiter</button>
+          </form>
+    </div>
+    
+</body>
+</html>
