@@ -6,16 +6,27 @@
     <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
 
     <title>Read</title>
+
+    
 </head>
 <body>
     <h1>Read</h1>
     <div id="main">
-        <p>Hier kann ich lesen!</p>
-        <p>Hier kann ich lesen!</p>
-        <p>Hier kann ich lesen!</p>
-        <p>Hier kann ich lesen!</p>
-        <p>{{text}}</p>
+        <div id="read-settings">
+            <label for="radioBtnCapital">Großbuchstaben</label>
+            <input type="radio" id="radioBtnCapital" name="radioBtn" value="capital">
+            <label for="radioBtnLower">Kleinbuchstaben</label>
+            <input type="radio" id="radioBtnLower" name="radioBtn" value="lowercase">
+            <label for="radioBtnNormal">Normal</label>
+            <input type="radio" id="radioBtnNormal" name="radioBtn" value="normal">
+            
+        </div>
+        <p>Auswahl: <span id="auswahl"></span></p>
+        <p id="text">{{text}}</p>
+
+     <div id="buttons">
+        <button id="startBtn">Start</button>
     </div>
-    
+    <script src="{{url_for('static',filename='script.js')}}"></script>
 </body>
 </html>

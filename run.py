@@ -16,7 +16,7 @@ def generate():
 def own():
     return render_template('own.html')
 
-@app.route('/read', methods=['GET', 'POST'])
+@app.route('/read', methods=['POST'])
 def read():
     text = request.form['userText']
     return render_template('read.html', text=text)
