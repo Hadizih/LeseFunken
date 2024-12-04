@@ -1,21 +1,30 @@
-const radioBtns = document.querySelectorAll('input[type="radio"]');
-const output = document.getElementById('text');
-const auswahl = document.querySelector('#auswahl');
-const originalText = output.innerHTML;
+radioBtnFormat = document.querySelectorAll('input[name="radioBtnFormat"]');
+radioBtnFlow = document.querySelectorAll('input[name="radioBtnFlow"]');
+textElement = document.getElementById('text');
 
-radioBtns.forEach(radioBtn => {
-  radioBtn.addEventListener('change', () => {
-    const selectedValue = document.querySelector('input[type="radio"]:checked');
+const changeTextSettings = () => {
+  const selectedFormat = document.querySelector('input[name="radioBtnFormat"]:checked').value;
+  const selectedFlow = document.querySelector('input[name="radioBtnFlow"]:checked').value;
+  
+  let words = textElement.getAttribute('data-words');
+  let syllables = textElement.getAttribute('data-syllables');
 
-    if (selectedValue.value === 'capital') {
-      auswahl.innerHTML = 'You selected capital';
-      output.innerHTML = originalText.toUpperCase();
-    } else if (selectedValue.value === 'lowercase') {
-      auswahl.innerHTML = 'You selected lowercase';
-      output.innerHTML = originalText.toLowerCase();
-    } else if (selectedValue.value === 'normal') {
-      auswahl.innerHTML = 'You selected normal';
-      output.innerHTML = originalText;
-    }
-  });
-});
+  let displayText = selectedFlow === 'syllables' ? syllables : words;
+  
+  
+  if (selectedFormat === 'uppercase') {
+    displayText = displayText.toUpperCase();
+  } else if (selectedFormat === 'lowercase') {
+    displayText = displayText.toLowerCase();
+  } else if (selectedFormat === 'normal') {
+    displayText = selectedFlow === 'syllables' ? syllables : words;
+  }
+
+  textElement.innerHTML = displayText;
+
+}
+
+radioBtnFormat.forEach(radioBtn => radioBtn.addEventListener('change', changeTextSettings));
+radioBtnFlow.forEach(radioBtn => radioBtn.addEventListener('change', changeTextSettings));
+
+

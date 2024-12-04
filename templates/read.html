@@ -12,21 +12,31 @@
 <body>
     <h1>Read</h1>
     <div id="main">
+        <h2>Wähle Settings für den Text:</h2>
         <div id="read-settings">
             <label for="radioBtnCapital">Großbuchstaben</label>
-            <input type="radio" id="radioBtnCapital" name="radioBtn" value="capital">
+            <input type="radio" id="radioBtnCapital" name="radioBtnFormat" value="uppercase" checked>
             <label for="radioBtnLower">Kleinbuchstaben</label>
-            <input type="radio" id="radioBtnLower" name="radioBtn" value="lowercase">
+            <input type="radio" id="radioBtnLower" name="radioBtnFormat" value="lowercase">
             <label for="radioBtnNormal">Normal</label>
-            <input type="radio" id="radioBtnNormal" name="radioBtn" value="normal">
+            <input type="radio" id="radioBtnNormal" name="radioBtnFormat" value="normal">
             
         </div>
-        <p>Auswahl: <span id="auswahl"></span></p>
-        <p id="text">{{text}}</p>
-
-     <div id="buttons">
-        <button id="startBtn">Start</button>
-    </div>
+        <div id="ausgabeText"> 
+        <h2>Dein Text</h2>
+        <p id="text" name="text" data-syllables="{{syllables_text}}" data-words="{{text_words}}">{{text_words}}</p>
+        </div>
+        <h2>Fließtext-Format</h2>
+        <div id="textFlowButtons">
+            <label for="radioBtnSyllables">In Silben</label>
+            <input type="radio" id="radioBtnSyllables" name="radioBtnFlow" value="syllables">
+            <label for="radioBtnWords">In Wörtern</label>
+            <input type="radio" id="radioBtnWords" name="radioBtnFlow" value="words" checked>
+        
+        </div>    
+        <div>
+            <button type="submit" name="action" value="start" onclick=start_reading()>Start</button>
+        </div>
     <script src="{{url_for('static',filename='script.js')}}"></script>
 </body>
 </html>
