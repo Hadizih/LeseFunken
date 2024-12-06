@@ -37,6 +37,11 @@
         <div id="btnControl">
             <button type="submit" id="btnStart" name="action" value="start" onclick=start()>Start</button>
             <button type="submit" id="btnPause" name="action" value="pause" onclick=pause() hidden="true">Pause</button>
+            <button type="submit" id="btnStop" name="action" value="stop" onclick=stop() hidden="true">Stop</button>
+            <div id="speedslider">
+                <label for="speed">Geschwindigkeit:</label>
+                <input type="range" id="speedchanger" class="slider" name="speed" min="1" max="100" value="50"><span id="speedValue">100</span><span id="speedUnit">%</span>
+            </div>
         </div>
     <script src="{{url_for('static',filename='script.js')}}"></script>
 </body>
