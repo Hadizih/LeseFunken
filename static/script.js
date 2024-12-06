@@ -21,38 +21,48 @@ const start = () => {
   btnStart.hidden = true;
 
   if (index === 0) {
-      words = textField.textContent.split(" ");
+    words = textField.textContent.split(" ");
   }
 
-  animationPaused = false; 
-
-  const highlightNextWord = () => {
-      if (animationPaused) {
-        btnStart.hidden = false;   
-        return; 
-      }
-      textField.innerHTML = words
-          .map((word, i) => {
-              if (i === index) {
-                  return `<span class="highlight">${word}</span>`;
-              }
-              return word;
-          })
-          .join(" ");
-
-      index++; 
-
-      if (index < words.length) {
-          timeoutId = setTimeout(highlightNextWord, calculateSpeed()); 
-      }
-  };
+  animationPaused = false;
 
   const highlightedWord = document.querySelector('.highlight');
   if (highlightedWord) {
     highlightedWord.classList.remove('paused');
   }
-  highlightNextWord();
+
+  highlightNextWord(); 
 };
+
+const highlightNextWord = () => {
+  if (animationPaused ) {
+    return; 
+  }
+
+  if (index >= words.length) {
+    btnPause.hidden = true;
+    btnStop.hidden = true;
+    btnStart.hidden = false;
+    index = 0;
+    return;
+  }
+
+  textField.innerHTML = words
+    .map((word, i) => {
+      if (i === index) {
+        return `<span class="highlight">${word}</span>`;
+      }
+      return word;
+    })
+    .join(" ");
+
+  index++; 
+
+  
+  timeoutId = setTimeout(highlightNextWord, calculateSpeed());
+};
+
+
 
 const calculateSpeed = () => {
   const speed = speedChanger.value;
@@ -70,24 +80,23 @@ const stop = () => {
 }
 
 const pause = () => {
-  animationPaused = true; 
-  clearTimeout(timeoutId);
-  const highlightedWord = document.querySelector('.highlight');
-
-  if (pauseActive) {
-    highlightedWord.classList.remove('paused');
+  if (animationPaused) {
+   
+    animationPaused = false;
     btnPause.innerHTML = 'Pause';
+    highlightNextWord();
   } else {
+    
+    animationPaused = true;
+    clearTimeout(timeoutId); 
+    const highlightedWord = document.querySelector('.highlight');
     if (highlightedWord) {
       highlightedWord.classList.add('paused');
-      pauseActive = true;
-      btnPause.innerHTML = 'Weiter';
     }
+    btnPause.innerHTML = 'Weiter';
   }
-  
-  
-  index -= 1; 
 };
+  
 // text settings
 const changeTextSettings = () => {
   const selectedFormat = document.querySelector('input[name="radioBtnFormat"]:checked').value;
