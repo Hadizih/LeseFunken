@@ -13,9 +13,26 @@ let animationPaused = false;
 let index = 0;
 let words = [];
 let timeoutId;
+let settings_hidden = false;
 
+
+const hide_settings = () => {
+  settings_hidden = !settings_hidden;
+  const settings = document.querySelectorAll('.settings');
+
+  settings.forEach((setting)=>{
+    if (settings_hidden) {
+      setting.style.display = 'none';
+    } else {
+      setting.style.display = 'block';
+    }
+  })
+ 
+}
 // start und pause der Textanimation
 const start = () => {
+  
+  hide_settings();
   btnPause.hidden = false;
   btnStop.hidden = false;
   btnStart.hidden = true;
@@ -30,7 +47,7 @@ const start = () => {
   if (highlightedWord) {
     highlightedWord.classList.remove('paused');
   }
-
+  
   highlightNextWord(); 
 };
 
@@ -77,6 +94,7 @@ const stop = () => {
   btnPause.hidden = true;
   btnStop.hidden = true;
   btnStart.hidden = false;
+  hide_settings();
 }
 
 const pause = () => {

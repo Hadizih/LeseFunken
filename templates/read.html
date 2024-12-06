@@ -12,26 +12,28 @@
 <body>
     <h1>Read</h1>
     <div id="main">
-        <h2>Wähle Settings für den Text:</h2>
-        <div id="read-settings">
+        
+        <div class="settings" id="read-settings">
+            <h2>Wähle Settings für den Text:</h2>
             <label for="radioBtnCapital">Großbuchstaben</label>
-            <input type="radio" id="radioBtnCapital" name="radioBtnFormat" value="uppercase">
+            <input type="radio"  id="radioBtnCapital" name="radioBtnFormat" value="uppercase">
             <label for="radioBtnLower">Kleinbuchstaben</label>
-            <input type="radio" id="radioBtnLower" name="radioBtnFormat" value="lowercase">
+            <input type="radio"  id="radioBtnLower" name="radioBtnFormat" value="lowercase">
             <label for="radioBtnNormal">Normal</label>
-            <input type="radio" id="radioBtnNormal" name="radioBtnFormat" value="normal" checked>
+            <input type="radio" class="settings" id="radioBtnNormal" name="radioBtnFormat" value="normal" checked>
             
         </div>
         <div id="ausgabeText"> 
         <h2>Dein Text</h2>
         <p id="text" name="text" data-syllables="{{syllables_text}}" data-words="{{text_words}}">{{text_words}}</p>
         </div>
-        <h2>Fließtext-Format</h2>
-        <div id="textFlowButtons">
+        
+        <div class="settings" id="textFlowButtons">
+            <h2>Fließtext-Format</h2>
             <label for="radioBtnSyllables">In Silben</label>
-            <input type="radio" id="radioBtnSyllables" name="radioBtnFlow" value="syllables">
+            <input type="radio"  id="radioBtnSyllables" name="radioBtnFlow" value="syllables">
             <label for="radioBtnWords">In Wörtern</label>
-            <input type="radio" id="radioBtnWords" name="radioBtnFlow" value="words" checked>
+            <input type="radio"  id="radioBtnWords" name="radioBtnFlow" value="words" checked>
         
         </div>    
         <div id="btnControl">
