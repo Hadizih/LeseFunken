@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-    <title>Lern lesen</title>
+    <title>LeseFunken</title>
 </head>
 <body>
-    <h1>Start</h1>
-    <div id="main">
-        <button id="generate" onclick="window.location.href='/generate'">Generate</button>
-        <button id="own" onclick="window.location.href='/own'">Own</button>
+
+    <div id="wrapper" class="wrapper">
+    <h1 class="container header"><span>L</span><span>e</span><span>s</span><span>e</span><span>F</span><span>u</span><span>n</span><span>k</span><span>e</span><span>n</span> - <span>
+        E</span><span>i</span><span>n</span><span>e</span> <span>L</span><span>e</span><span>s</span><span>e</span><span>h</span><span>i</span><span>l</span><span>f</span><span>e</span></h1>
+    <div id="main" class="container">
+        <div id="about" class="inner-container">
+        <h2>About</h2>
+        <p> LeseFunken ist eine Webanwendung, die es ermöglicht, Texte in Silben oder Wörtern zu lesen. </p>
+        <p> Das Projekt entstand im Rahmen des Minihackthons 2.0 von Kevin Chromik. </p>
+        <p> <a href="https://minihackathon.de/">https://minihackathon.de/</a> </p>
+        <br>
+        <p> Von: Hadi</p>
+        <p> VON PAPA FÜR EMMA</p>
     </div>
+    <div id="read" class="inner-container">
+        <button id="own" class="" onclick="window.location.href='/own'">Mit Texteingabe starten</button>
+    </div>
+    </div>  
     
 </body>
 </html>

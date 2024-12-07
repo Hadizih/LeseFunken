@@ -4,47 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-    <title>Read</title>
+    <title>LeseFunken - Lesen</title>
 
     
 </head>
 <body>
-    <h1>Read</h1>
-    <div id="main">
+    <div id="wrapper" class="wrapper">
+        <h1 class="container header">
+            <span>V</span><span>i</span><span>e</span><span>l</span>
+            <span> </span>
+            <span>S</span><span>p</span><span>a</span><span>ß</span>
+            <span> </span>
+            <span>b</span><span>e</span><span>i</span><span>m</span>
+            <span> </span>
+            <span>L</span><span>e</span><span>s</span><span>e</span><span>n</span>
+            <span> </span>
+            <span>ü</span><span>b</span><span>e</span><span>n</span>
+          </h1>
+          
+    <div class="container">
+    
+    <div id="main" class="inner-container">
         
-        <div class="settings" id="read-settings">
-            <h2>Wähle Settings für den Text:</h2>
+        <div class="btn-group" id="read-settings">
             <label for="radioBtnCapital">Großbuchstaben</label>
-            <input type="radio"  id="radioBtnCapital" name="radioBtnFormat" value="uppercase">
+            <input type="radio"  id="radioBtnCapital" class="settings" name="radioBtnFormat" value="uppercase">
             <label for="radioBtnLower">Kleinbuchstaben</label>
-            <input type="radio"  id="radioBtnLower" name="radioBtnFormat" value="lowercase">
+            <input type="radio"  id="radioBtnLower" class="settings" name="radioBtnFormat" value="lowercase">
             <label for="radioBtnNormal">Normal</label>
             <input type="radio" class="settings" id="radioBtnNormal" name="radioBtnFormat" value="normal" checked>
             
         </div>
+        <div class="settings" id="textFlowButtons">
+            <label for="radioBtnSyllables">In Silben</label>
+            <input type="radio"  id="radioBtnSyllables" class="settings" name="radioBtnFlow" value="syllables">
+            <label for="radioBtnWords">In Wörtern</label>
+            <input type="radio"  id="radioBtnWords" class="settings" name="radioBtnFlow" value="words" checked>
+        
+        </div>
         <div id="ausgabeText"> 
-        <h2>Dein Text</h2>
+        
         <p id="text" name="text" data-syllables="{{syllables_text}}" data-words="{{text_words}}">{{text_words}}</p>
         </div>
         
-        <div class="settings" id="textFlowButtons">
-            <h2>Fließtext-Format</h2>
-            <label for="radioBtnSyllables">In Silben</label>
-            <input type="radio"  id="radioBtnSyllables" name="radioBtnFlow" value="syllables">
-            <label for="radioBtnWords">In Wörtern</label>
-            <input type="radio"  id="radioBtnWords" name="radioBtnFlow" value="words" checked>
-        
-        </div>    
-        <div id="btnControl">
-            <button type="submit" id="btnStart" name="action" value="start" onclick=start()>Start</button>
-            <button type="submit" id="btnPause" name="action" value="pause" onclick=pause() hidden="true">Pause</button>
-            <button type="submit" id="btnStop" name="action" value="stop" onclick=stop() hidden="true">Stop</button>
-            <div id="speedslider">
-                <label for="speed">Geschwindigkeit:</label>
-                <input type="range" id="speedchanger" class="slider" name="speed" min="1" max="100" value="50"><span id="speedValue">100</span><span id="speedUnit">%</span>
-            </div>
+            
+        <div id="btnControl" class="btn-group">
+            <button type="submit" id="btnStart" class="" name="action" value="start" onclick=start()>Start</button>
+            <button type="submit" id="btnPause" class="" name="action" value="pause" onclick=pause() hidden="true">Pause</button>
+            <button type="submit" id="btnStop" class="" name="action" value="stop" onclick=stop() hidden="true">Stop</button>
+            
         </div>
+        <div id="speed-slider-container">
+        <div id="speedslider">
+            <label for="speed">Geschwindigkeit:</label>
+            <input type="range" id="speedchanger" class="slider" name="speed" min="1" max="100" value="50"><span id="speedValue">50</span><span id="speedUnit">%</span>
+        </div>
+    </div>
+    </div>
+    </div>
     <script src="{{url_for('static',filename='script.js')}}"></script>
 </body>
 </html>

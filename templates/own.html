@@ -4,18 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-    <title>Own</title>
+    <title>Lesefunken - Texteingabe</title>
 </head>
 <body>
-    <h1>Own</h1>
-    <div id="main">
-        <form action="/read" method="POST">
-            <label for="userText">Bitte gib deinen Text ein</label>
-            <textarea id="userText" name="userText" rows="10" cols="50"></textarea>
+    <div id="wrapper" class="wrapper">
+        <h1 class="container header"><span>L</span><span>e</span><span>s</span><span>e</span><span>F</span><span>u</span><span>n</span><span>k</span><span>e</span><span>n</span> - <span>
+            E</span><span>i</span><span>n</span><span>e</span> <span>L</span><span>e</span><span>s</span><span>e</span><span>h</span><span>i</span><span>l</span><span>f</span><span>e</span></h1>
+        
+    <div class="container">
+    <h1 class="container header">Gib hier deinen Text ein:</h1>
+    <div id="main" class="inner-container">
+        <div>
+          	
+        <form  action="/read" method="POST" onsubmit="return validateText()">
+            <textarea id="eingabeText" name="userText" rows="4" cols="50" placeholder="Heute ist ein schöner Tag, weil..."></textarea>
+            <p>Text muss zwischen 50 und 2500 Zeichen lang sein</p>
             <button type="submit" name="action" value="own_text">Weiter</button>
           </form>
+        </div>
     </div>
-    
+    </div>
+    </div>
+    <script src="{{url_for('static',filename='script.js')}}"></script>
 </body>
 </html>

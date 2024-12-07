@@ -7,32 +7,46 @@ const btnStop = document.querySelector('#btnStop');
 const textField = document.querySelector('#text');
 const speedChanger = document.querySelector('#speedchanger');
 const speedValue = document.querySelector('#speedValue');
+const textArea = document.querySelector('#eingabeText');
+const charCount = document.querySelector('#charCount');
 
 let pauseActive = false;
 let animationPaused = false;
 let index = 0;
 let words = [];
 let timeoutId;
-let settings_hidden = false;
+let settings_disabled = false;
 
 
-const hide_settings = () => {
-  settings_hidden = !settings_hidden;
+const validateText = () => {
+  const text = textArea.value.trim();
+  const currentLength = text.length;
+
+  if (currentLength < 20 || currentLength > 2500) {
+    alert('Text muss mindestens 50 und maximal 2500 Zeichen lang sein');
+    return false;
+  }
+  return true;
+};
+
+const disable_settings  = () => {
+  settings_disabled = !settings_disabled;
   const settings = document.querySelectorAll('.settings');
 
   settings.forEach((setting)=>{
-    if (settings_hidden) {
-      setting.style.display = 'none';
+    if (settings_disabled) {
+      setting.setAttribute("disabled", "true");
     } else {
-      setting.style.display = 'block';
+      setting.removeAttribute("disabled");
     }
   })
  
-}
+};
 // start und pause der Textanimation
 const start = () => {
+  disable_settings();
+  clearTimeout(timeoutId);
   
-  hide_settings();
   btnPause.hidden = false;
   btnStop.hidden = false;
   btnStart.hidden = true;
@@ -83,7 +97,7 @@ const highlightNextWord = () => {
 
 const calculateSpeed = () => {
   const speed = speedChanger.value;
-  return 5000 - (speed)*30;
+  return  Math.max(500, 4000 - speed * 30);
 }
 
 const stop = () => {
@@ -94,7 +108,8 @@ const stop = () => {
   btnPause.hidden = true;
   btnStop.hidden = true;
   btnStart.hidden = false;
-  hide_settings();
+  disable_settings();
+  
 }
 
 const pause = () => {
@@ -150,3 +165,6 @@ speedChanger.oninput = function() {
     timeoutId = setTimeout(() => start(), calculateSpeed());
   }
 };
+
+
+
