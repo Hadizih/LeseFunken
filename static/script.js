@@ -42,7 +42,7 @@ const disable_settings  = () => {
   })
  
 };
-// start und pause der Textanimation
+
 const start = () => {
   disable_settings();
   clearTimeout(timeoutId);
@@ -130,7 +130,7 @@ const pause = () => {
   }
 };
   
-// text settings
+
 const changeTextSettings = () => {
   const selectedFormat = document.querySelector('input[name="radioBtnFormat"]:checked').value;
   const selectedFlow = document.querySelector('input[name="radioBtnFlow"]:checked').value;
@@ -156,7 +156,7 @@ const changeTextSettings = () => {
 radioBtnFormat.forEach(radioBtn => radioBtn.addEventListener('change', changeTextSettings));
 radioBtnFlow.forEach(radioBtn => radioBtn.addEventListener('change', changeTextSettings));
 
-// speedchanger
+
 
 speedChanger.oninput = function() {
   speedValue.innerHTML = this.value;
