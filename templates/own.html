@@ -17,12 +17,14 @@
     <h1 class="container header">Gib hier deinen Text ein:</h1>
     <div id="main" class="inner-container">
         <div>
-          	
+
         <form  action="/read" method="POST" onsubmit="return validateText()">
             <textarea id="eingabeText" name="userText" rows="4" cols="50" placeholder="Heute ist ein schöner Tag, weil..."></textarea>
             <p>Text muss zwischen 50 und 2500 Zeichen lang sein</p>
+            
             <button type="submit" name="action" value="own_text">Weiter</button>
           </form>
+          
         </div>
     </div>
     </div>

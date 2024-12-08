@@ -54,11 +54,12 @@
             <button type="submit" id="btnStart" class="" name="action" value="start" onclick=start()>Start</button>
             <button type="submit" id="btnPause" class="" name="action" value="pause" onclick=pause() hidden="true">Pause</button>
             <button type="submit" id="btnStop" class="" name="action" value="stop" onclick=stop() hidden="true">Stop</button>
+            <button id="own" class="" onclick="window.location.href='/own'">Zurück</button>
             
         </div>
         <div id="speed-slider-container">
         <div id="speedslider">
-            <label for="speed">Geschwindigkeit:</label>
+            <label for="speed">Lese - Geschwindigkeit:</label>
             <input type="range" id="speedchanger" class="slider" name="speed" min="1" max="100" value="50"><span id="speedValue">50</span><span id="speedUnit">%</span>
         </div>
     </div>
